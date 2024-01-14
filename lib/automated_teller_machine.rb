@@ -1,7 +1,7 @@
-CAS_LIMIT_WITHDRAW = 500
+CASH_LIMIT_WITHDRAW = 500
 
 class AutomatedTellerMachine
-	def initialize(register: Register.new, accounts: Account.load_data)
+	def initialize(register: Register.new, accounts: Account.create_accounts_from_data)
 		@register = register
 		@accounts = accounts
 	end
