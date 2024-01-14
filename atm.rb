@@ -31,17 +31,7 @@ loop do
         when "1"
           puts "Your current balance is: $#{account.balance}"
         when "2"
-          puts "How much would you like to withdraw?"
-
-          amount = gets.strip.to_f
-
-          if amount <= 0 || amount > 500
-            puts "Invalid withdrawal amount. Please enter an amount between $1 and $500."
-          elsif amount > account.balance
-            puts "Insufficient funds. Your current balance is $#{account.balance}."
-          else
-            atm.perform_withdrawal(account, amount)
-          end
+            atm.withdraw_cash(account)
         when "3"
           break
         else
