@@ -18,7 +18,7 @@ class Register
 			next if bill_count.zero?
 
 			num_bills = calculate_num_bills(remaining_amount, bill_value, bill_count)
-			deduct_bills_from_register(bill_value, num_bills)
+			deduct_bills_from_register(remaining_amount, bill_value, num_bills)
 
 			break if remaining_amount.zero?
 		end
@@ -46,7 +46,7 @@ class Register
 		[num_bills, bill_count].min
 	end
 
-	def deduct_bills_from_register(bill_value, num_bills)
+	def deduct_bills_from_register(remaining_amount, bill_value, num_bills)
 		remaining_amount -= num_bills * bill_value.to_i
 		@bills[bill_value] -= num_bills
 	end
